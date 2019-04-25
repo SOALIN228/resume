@@ -1,12 +1,22 @@
 body {
-    background: black;
-    color: white;
+    background: #efefef;
     margin: 0;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    height: 0;
+    border: none;
+    border-top: 1px solid #dedede;
 }
 
 .clearfix::after {
@@ -16,11 +26,19 @@ a {
 }
 
 .topNavBar {
-    padding: 20px 16px;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.topNavBar .topNavBar-inner {
+    padding: 0 16px;
 }
 
 .topNavBar .logo {
-    font-family: "Arial Black", serif;
+    font-family: "Arial Black", sans-serif;
     font-size: 24px;
     padding-top: 3px;
     padding-bottom: 4px;
@@ -66,4 +84,104 @@ a {
     border-bottom-color: #DC6465;
 }
 
+.banner {
+    height: 515px;
+    background-image: url(img/rs-cover.jpg);
+    background-position: center center;
+    background-size: cover;
+}
 
+.banner .mask {
+    height: 515px;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.userCart {
+    max-width: 940px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.userCart .welcome {
+    background: #e6686a;
+    color: white;
+    display: inline-block;
+    padding: 4px 16px;
+    line-height: 22px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.userCart .triangle {
+    display: block;
+    border: 10px solid transparent;
+    width: 0;
+    border-left-color: #e6686a;
+    border-top-width: 0;
+    position: absolute;
+    left: 4px;
+    top: 100%;
+}
+
+.userCart .picture {
+    float: left;
+}
+
+.userCart .text {
+    float: left;
+    margin-left: 65px;
+    width: 470px;
+}
+
+.userCart .text h1 {
+    margin-top: 18px;
+}
+
+.userCart .text hr {
+    margin: 20px 0;
+}
+
+.userCart .pictureAndText {
+    padding: 50px;
+}
+
+.userCart dl dt,
+.userCart dl dd {
+    float: left;
+    padding: 5px 0;
+}
+
+.userCart dl dt {
+    width: 30%;
+    font-weight: bold;
+}
+
+.userCart dl dd {
+    width: 70%;
+    color: #9da0a7;
+}
+
+.userCart > footer.media {
+    background-color: #e6686a;
+    text-align: center;
+}
+
+.userCart > footer.media > a {
+    display: inline-block;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0;
+    border-radius: 50%;
+    margin: 16px;
+}
+
+.userCart > footer.media > a:hover {
+    background-color: #cf5d5f;
+}
+
+.userCart svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    vertical-align: top;
+}
