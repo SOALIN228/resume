@@ -19,6 +19,14 @@ hr {
     border-top: 1px solid #dedede;
 }
 
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
 .clearfix::after {
     content: '';
     display: block;
@@ -100,6 +108,7 @@ hr {
     max-width: 940px;
     margin: 0 auto;
     background-color: #fff;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .userCart .welcome {
@@ -184,4 +193,139 @@ hr {
     height: 30px;
     fill: white;
     vertical-align: top;
+}
+
+body > main {
+    margin-top: -340px;
+}
+
+body > main .downloadResume-wrapper {
+    text-align: center;
+}
+
+body > main .downloadResume {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    border: 1px solid #cdcfd1;
+    background-color: #efefef;
+    display: inline-block;
+    border-radius: 2px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0;
+    transition: box-shadow 0.2s;
+}
+
+body > main .downloadResume:hover {
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.2);
+}
+
+.selfIntroduction {
+    max-width: 940px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: KaiTi, serif;
+    line-height: 1.8;
+    font-size: 20px;
+}
+
+section.skills,
+section.portfolio {
+    max-width: 940px;
+    margin: 60px auto 0;
+}
+
+section.skills > h2,
+section.portfolio > h2 {
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+section.skills h3 {
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+}
+
+section.skills > ol {
+    background-color: #fff;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 42px 50px 10px;
+    margin-top: 30px;
+}
+
+section.skills > ol > li {
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+}
+
+section.skills > ol > li:nth-child(even) {
+    float: right;
+}
+
+section.skills .propressBar {
+    height: 5px;
+    margin: 4px 0 40px;
+    position: relative;
+}
+
+section.skills .propressBar > .progress {
+    height: 100%;
+    width: 50%;
+    border-radius: 5px;
+    background-color: #e8676b;
+    position: relative;
+    z-index: 1;
+    transition: width 400ms ease-out 100ms;
+}
+
+section.skills .propressBar::after {
+    content: '';
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border-radius: 5px;
+    background-color: #e8676b;
+}
+
+section.portfolio > nav {
+    text-align: center;
+}
+
+section.portfolio > nav > ol {
+    border: 1px solid red;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+section.portfolio > nav > ol > li {
+    float: left;
+    margin-left: 40px;
+}
+
+section.portfolio > nav > ol > li:first-child {
+    margin: 0;
+}
+
+section.portfolio {
+    text-align: center;
+}
+
+section.portfolio > nav {
+    display: inline-block;
+    vertical-align: top;
+}
+
+section.portfolio > nav .bar {
+    border: 4px solid red;
 }
