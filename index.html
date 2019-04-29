@@ -17,7 +17,7 @@
 
     .site-welocme {
       display: none;
-      background-color: #888;
+      background-color: #fff;
       position: fixed;
       top: 0;
       left: 0;
@@ -42,12 +42,26 @@
       <a class="logo" href="#" alt="logo" style="float: left;">
         <span class="rs">RS</span><span class="card">card</span>
       </a>
-      <nav style="float: right;">
+      <nav class="menu" style="float: right;">
         <ul class="clearfix">
           <li><a href="#">关于</a></li>
           <li><a href="#">技能</a></li>
-          <li><a href="#">作品</a></li>
-          <li><a href="#">博客</a></li>
+          <li>
+            <a href="#">作品</a>
+            <ul class="submenu">
+              <li>作品1</li>
+              <li>作品2</li>
+              <li>作品3</li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">博客</a>
+            <ul class="submenu">
+              <li>作品1</li>
+              <li>作品2</li>
+              <li>作品3</li>
+            </ul>
+          </li>
           <li><a href="#">日历</a></li>
           <li><a href="#">联系方式</a></li>
           <li><a href="#">其他</a></li>
@@ -207,13 +221,25 @@
   <script>
   setTimeout(function () {
     siteWelcome.classList.remove('active')
-  }, 2000)
+  }, 1000)
 
   window.onscroll = function () {
     if (window.scrollY > 0) {
       topNavBar.classList.add('sticky')
     } else {
       topNavBar.classList.remove('sticky')
+    }
+  }
+  let liTags = document.querySelectorAll('nav.menu > ul > li')
+  for (let i = 0; i < liTags.length; i++) {
+    liTags[i].onmouseenter = function (x) {
+      x.currentTarget.classList.add('active')
+      // while (brother.tagName !== 'UL') { // tagName返回为大写, 或者使用nodeType
+      //   brother = brother.nextSibling
+      // }
+    }
+    liTags[i].onmouseleave = function (x) {
+      x.currentTarget.classList.remove('active')
     }
   }
   </script>
