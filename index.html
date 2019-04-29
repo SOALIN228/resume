@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>李明林的个人简历</title>
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="loading.css">
   <script src="//at.alicdn.com/t/font_1161326_iozzqhfu3qm.js"></script>
   <style type="text/css">
     .icon {
@@ -12,44 +13,6 @@
       vertical-align: -0.15em;
       fill: currentColor;
       overflow: hidden;
-    }
-
-    .loading {
-      width: 200px;
-      height: 200px;
-      position: relative;
-    }
-
-    .loading::before, .loading::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 0;
-      background-color: black;
-      border-radius: 50%;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
-      animation: s 1.5s linear infinite;
-    }
-
-    .loading::after {
-      animation-delay: 0.75s;
-    }
-
-    @keyframes s {
-      0% {
-        width: 0px;
-        height: 0px;
-        opacity: 1;
-      }
-      100% {
-        width: 100px;
-        height: 100px;
-        opacity: 0;
-      }
     }
 
     .site-welocme {
@@ -242,7 +205,9 @@
     </div>
   </section>
   <script>
-  siteWelcome.classList.remove('active')
+  setTimeout(function () {
+    siteWelcome.classList.remove('active')
+  }, 2000)
   </script>
 </body>
 </html>
