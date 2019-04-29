@@ -134,6 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 .topNavBar li.active > .submenu {
     display: block;
     animation: submenuSlide .3s;
+    cursor: pointer;
 }
 
 @keyframes submenuSlide {
