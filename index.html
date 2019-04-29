@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>李明林的个人简历</title>
-  <link rel="stylesheet" href="a.css">
+  <link rel="stylesheet" href="main.css">
   <script src="//at.alicdn.com/t/font_1161326_iozzqhfu3qm.js"></script>
   <style type="text/css">
     .icon {
@@ -13,9 +13,67 @@
       fill: currentColor;
       overflow: hidden;
     }
+
+    .loading {
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    .loading::before, .loading::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      background-color: black;
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      animation: s 1.5s linear infinite;
+    }
+
+    .loading::after {
+      animation-delay: 0.75s;
+    }
+
+    @keyframes s {
+      0% {
+        width: 0px;
+        height: 0px;
+        opacity: 1;
+      }
+      100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+      }
+    }
+
+    .site-welocme {
+      display: none;
+      background-color: #888;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .site-welocme.active {
+      display: flex;
+    }
   </style>
 </head>
 <body>
+  <div id="siteWelcome" class="site-welocme active">
+    <div class="loading"></div>
+  </div>
   <div class="topNavBar">
     <div class="topNavBar-inner clearfix">
       <a class="logo" href="#" alt="logo" style="float: left;">
@@ -75,12 +133,12 @@
             <use xlink:href="#icon-boke1"></use>
           </svg>
         </a>
-        <a href="#">
+        <a href="javascript:alert('微博没啥东西，只是为了样式美观！');">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-weibo"></use>
           </svg>
         </a>
-        <a href="#">
+        <a href="javascript:alert('推上没啥东西，只是为了样式美观！');">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-tuite"></use>
           </svg>
@@ -183,5 +241,8 @@
       </div>
     </div>
   </section>
+  <script>
+  siteWelcome.classList.remove('active')
+  </script>
 </body>
 </html>
