@@ -39,6 +39,16 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     width: 100%;
+    transition: all 1s;
+    color: #b7b7b7;
+}
+
+.topNavBar.sticky {
+    background-color: white;
+    padding: 10px 0;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+    color: #3d4451;
 }
 
 .topNavBar .topNavBar-inner {
@@ -62,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .topNavBar nav {
-    padding-top: 7px;
+    padding-top: 5px;
 }
 
 .topNavBar nav ul {
@@ -79,17 +89,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .topNavBar nav ul > li > a {
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.7);
     font-weight: bold;
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
     padding-top: 5px;
     padding-bottom: 5px;
     display: block;
+    color: inherit;
+    position: relative;
 }
 
-.topNavBar nav ul > li > a:hover {
-    border-bottom-color: #DC6465;
+.topNavBar nav ul > li > a:hover::after {
+    /*border-bottom-color: #DC6465;*/
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #DC6465;
+    height: 3px;
+    animation: menuSlide .3s;
+}
+
+@keyframes menuSlide {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
 }
 
 .banner {
