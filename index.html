@@ -207,9 +207,9 @@
   window.onload = function () {
     setTimeout(function () {
       siteWelcome.classList.remove('active')
-      offsetSite()
+      findClosest()
       document.documentElement.style.overflow = ''
-    }, 3000)
+    }, 300)
   }
 
   document.documentElement.style.overflow = 'hidden'
@@ -227,11 +227,11 @@
       topNavBar.classList.remove('sticky')
     }
 
-    offsetSite()
+    findClosest()
   }
 
   // 移除距离顶部最近的属性，达到偏移动画的效果
-  function offsetSite () {
+  function findClosest () {
     let specialTags = document.querySelectorAll('[data-x]')
     let minIndex = 0
     for (let i = 1; i < specialTags.length; i++) {

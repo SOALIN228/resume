@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-x].offset {
     transform: translateY(40px);
-    opacity: 0;
+    /*opacity: 0;*/
 }
 
 [data-x] {
@@ -343,6 +343,7 @@ section.skills .propressBar {
     height: 5px;
     margin: 4px 0 40px;
     position: relative;
+    overflow: hidden;
 }
 
 section.skills .propressBar > .progress {
@@ -353,6 +354,10 @@ section.skills .propressBar > .progress {
     position: relative;
     z-index: 1;
     transition: width 400ms ease-out 100ms;
+}
+
+section.skills.offset .progress {
+    width: 0!important;
 }
 
 section.skills .propressBar::after {
