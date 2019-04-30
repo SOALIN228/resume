@@ -27,6 +27,17 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
 }
 
+[data-x].offset {
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+[data-x] {
+    transform: translateY(0);
+    transition: all .5s;
+    opacity: 1;
+}
+
 .clearfix::after {
     content: '';
     display: block;
@@ -100,7 +111,8 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-.topNavBar nav > ul > li.active > a::after {
+.topNavBar nav > ul > li.active > a::after,
+.topNavBar nav > ul > li.highlight > a::after {
     content: '';
     display: block;
     position: absolute;
@@ -133,7 +145,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .topNavBar li.active > .submenu {
     display: block;
-    animation: submenuSlide .3s;
+    animation: submenuSlide .4s;
     cursor: pointer;
 }
 
@@ -142,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
         margin-right: 100%;
     }
     100% {
-        margin-right: 0%;
+        margin-right: 0;
     }
 }
 

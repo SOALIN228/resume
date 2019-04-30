@@ -27,7 +27,7 @@
       </a>
       <nav class="menu" style="float: right;">
         <ul class="clearfix">
-          <li class="active"><a href="#siteAbout">关于</a></li>
+          <li><a href="#siteAbout">关于</a></li>
           <li><a href="#siteSkills">技能</a></li>
           <li>
             <a href="#siteWorks">作品</a>
@@ -93,12 +93,12 @@
             <use xlink:href="#icon-boke1"></use>
           </svg>
         </a>
-        <a href="javascript:;">
+        <a href="javascript:">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-weibo"></use>
           </svg>
         </a>
-        <a href="javascript:;">
+        <a href="javascript:">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-tuite"></use>
           </svg>
@@ -205,9 +205,19 @@
   <script src="https://cdn.bootcss.com/tween.js/17.3.0/Tween.min.js"></script>
   <script>
   // 控制loading
+  // setTimeout(function () {
+  //   siteWelcome.classList.remove('active')
+  // }, 1000)
+
+  let specialTags = document.querySelectorAll('[data-x]')
+  for (let i = 0; i < specialTags.length; i++) {
+    specialTags[i].classList.add('offset')
+  }
+
   setTimeout(function () {
-    siteWelcome.classList.remove('active')
-  }, 1000)
+    offsetSite()
+  }, 0)
+
 
   // 控制导航栏黏在顶部
   window.onscroll = function () {
@@ -217,6 +227,11 @@
       topNavBar.classList.remove('sticky')
     }
 
+    offsetSite()
+  }
+
+  // 移除距离顶部最近的属性，达到偏移动画的效果
+  function offsetSite () {
     let specialTags = document.querySelectorAll('[data-x]')
     let minIndex = 0
     for (let i = 1; i < specialTags.length; i++) {
@@ -225,18 +240,15 @@
       }
     }
 
-    for (let i = 0; i < specialTags.length; i++) {
-      specialTags[i].classList.remove('active')
-    }
-    specialTags[minIndex].classList.add('active')
+    specialTags[minIndex].classList.remove('offset')
     let id = specialTags[minIndex].id
-    let a = document.querySelector('a[href="#'+id+'"]')
+    let a = document.querySelector('a[href="#' + id + '"]')
     let li = a.parentNode
     let brothersAndMe = li.parentNode.children
-    for (let i = 0; i < brothersAndMe.length;i++) {
-      brothersAndMe[i].classList.remove('active')
+    for (let i = 0; i < brothersAndMe.length; i++) {
+      brothersAndMe[i].classList.remove('highlight')
     }
-    li.classList.add('active')
+    li.classList.add('highlight')
   }
 
   // 监听鼠标在导航栏上移动
@@ -288,6 +300,7 @@
       .start()
     }
   }
+  siteWelcome.classList.remove('active')
   </script>
 </body>
 </html>
