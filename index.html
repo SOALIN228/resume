@@ -202,6 +202,7 @@
     </div>
   </section>
   <div style="padding-bottom: 200px;"></div>
+  <script src="https://cdn.bootcss.com/tween.js/17.3.0/Tween.min.js"></script>
   <script>
   // 控制loading
   setTimeout(function () {
@@ -233,6 +234,14 @@
 
   // 监听导航栏点击事件,控制锚点跳转
   let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+
+  function animate (time) {
+    requestAnimationFrame(animate)
+    TWEEN.update(time)
+  }
+
+  requestAnimationFrame(animate)
+
   for (let i = 0; i < aTags.length; i++) {
     aTags[i].onclick = function (x) {
       x.preventDefault()
@@ -241,19 +250,19 @@
       let element = document.querySelector(href)
       let top = element.offsetTop
 
-      let n = 25 // 移动次数
-      let t = 500 / n // 单词移动时间
       let currentTop = window.scrollY
       let targetTop = top - 80
-      let s = (targetTop - currentTop) / n // 每次移动距离
-      let i = 0
-      let count = setInterval(() => {
-        if (n === i) {
-          window.clearInterval(count)
-          return
-        }
-        window.scrollTo(0, currentTop + s * ++i)
-      }, t)
+      let s = targetTop - currentTop
+      var coords = { y: currentTop }
+      var t = Math.abs((s / 100) * 300)
+      t = t > 500 ? 500 : t
+      var tween = new TWEEN.Tween(coords)
+      .to({ y: targetTop }, t)
+      .easing(TWEEN.Easing.Quadratic.InOut)
+      .onUpdate(function () {
+        window.scrollTo(0, coords.y)
+      })
+      .start()
     }
   }
   </script>
