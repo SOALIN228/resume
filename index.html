@@ -201,6 +201,7 @@
       </div>
     </div>
   </section>
+  <div style="padding-bottom: 200px;"></div>
   <script>
   // 控制loading
   setTimeout(function () {
@@ -239,7 +240,20 @@
       let href = a.getAttribute('href') // #siteAbout
       let element = document.querySelector(href)
       let top = element.offsetTop
-      window.scrollTo(0, top - 80)
+
+      let n = 25 // 移动次数
+      let t = 500 / n // 单词移动时间
+      let currentTop = window.scrollY
+      let targetTop = top - 80
+      let s = (targetTop - currentTop) / n // 每次移动距离
+      let i = 0
+      let count = setInterval(() => {
+        if (n === i) {
+          window.clearInterval(count)
+          return
+        }
+        window.scrollTo(0, currentTop + s * ++i)
+      }, t)
     }
   }
   </script>
