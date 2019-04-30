@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>李明林的个人简历</title>
-  <link rel="stylesheet" href="loading.css">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="css/loading.css">
+  <link rel="stylesheet" href="css/main.css">
   <script src="//at.alicdn.com/t/font_1161326_iozzqhfu3qm.js"></script>
   <style type="text/css">
     .icon {
@@ -56,7 +56,7 @@
     <div class="mask"></div>
   </div>
   <main>
-    <div id="siteAbout" class="userCart">
+    <div data-x id="siteAbout" class="userCart">
       <div class="pictureAndText clearfix">
         <div class="picture">
           <img src="./img/avatar.jpg" alt="头像" width="280" height="350">
@@ -93,12 +93,12 @@
             <use xlink:href="#icon-boke1"></use>
           </svg>
         </a>
-        <a href="javascript:alert('微博没啥东西，只是为了样式美观！');">
+        <a href="javascript:;">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-weibo"></use>
           </svg>
         </a>
-        <a href="javascript:alert('推上没啥东西，只是为了样式美观！');">
+        <a href="javascript:;">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-tuite"></use>
           </svg>
@@ -113,7 +113,7 @@
       技能：前端开发，android开发
     </p>
   </main>
-  <section id="siteSkills" class="skills">
+  <section data-x id="siteSkills" class="skills">
     <h2>技能</h2>
     <ol class="clearfix">
       <li>
@@ -166,7 +166,7 @@
       </li>
     </ol>
   </section>
-  <section id="siteWorks" class="portfolio">
+  <section data-x id="siteWorks" class="portfolio">
     <h2>作品集</h2>
     <nav>
       <ol class="clearfix">
@@ -216,6 +216,19 @@
     } else {
       topNavBar.classList.remove('sticky')
     }
+
+    let specialTags = document.querySelectorAll('[data-x]')
+    let minIndex = 0
+    for (let i = 1; i < specialTags.length; i++) {
+      if (Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)) {
+        minIndex = i
+      }
+    }
+
+    for (let i = 0; i < specialTags.length; i++) {
+      specialTags[i].classList.remove('active')
+    }
+    specialTags[minIndex].classList.add('active')
   }
 
   // 监听鼠标在导航栏上移动
@@ -235,6 +248,7 @@
   // 监听导航栏点击事件,控制锚点跳转
   let aTags = document.querySelectorAll('nav.menu > ul > li > a')
 
+  // 注册tween
   function animate (time) {
     requestAnimationFrame(animate)
     TWEEN.update(time)
@@ -256,6 +270,7 @@
       var coords = { y: currentTop }
       var t = Math.abs((s / 100) * 300)
       t = t > 500 ? 500 : t
+      // 使用tween缓动动画
       var tween = new TWEEN.Tween(coords)
       .to({ y: targetTop }, t)
       .easing(TWEEN.Easing.Quadratic.InOut)

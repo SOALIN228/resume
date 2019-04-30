@@ -33,6 +33,10 @@ h1, h2, h3, h4, h5, h6 {
     clear: both;
 }
 
+[data-x].active {
+    outline: 1px solid red;
+}
+
 .topNavBar {
     padding: 20px 0;
     position: fixed;
@@ -153,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .banner {
     height: 515px;
-    background-image: url(img/rs-cover.jpg);
+    background-image: url(../img/rs-cover.jpg);
     background-position: center center;
     background-size: cover;
 }
