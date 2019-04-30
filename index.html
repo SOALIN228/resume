@@ -27,7 +27,7 @@
       </a>
       <nav class="menu" style="float: right;">
         <ul class="clearfix">
-          <li><a href="#siteAbout">关于</a></li>
+          <li class="active"><a href="#siteAbout">关于</a></li>
           <li><a href="#siteSkills">技能</a></li>
           <li>
             <a href="#siteWorks">作品</a>
@@ -229,6 +229,14 @@
       specialTags[i].classList.remove('active')
     }
     specialTags[minIndex].classList.add('active')
+    let id = specialTags[minIndex].id
+    let a = document.querySelector('a[href="#'+id+'"]')
+    let li = a.parentNode
+    let brothersAndMe = li.parentNode.children
+    for (let i = 0; i < brothersAndMe.length;i++) {
+      brothersAndMe[i].classList.remove('active')
+    }
+    li.classList.add('active')
   }
 
   // 监听鼠标在导航栏上移动
