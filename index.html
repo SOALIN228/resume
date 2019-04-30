@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>李明林的个人简历</title>
-  <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="loading.css">
+  <link rel="stylesheet" href="main.css">
   <script src="//at.alicdn.com/t/font_1161326_iozzqhfu3qm.js"></script>
   <style type="text/css">
     .icon {
@@ -13,23 +13,6 @@
       vertical-align: -0.15em;
       fill: currentColor;
       overflow: hidden;
-    }
-
-    .site-welocme {
-      display: none;
-      background-color: #fff;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 10;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .site-welocme.active {
-      display: flex;
     }
   </style>
 </head>
@@ -219,10 +202,12 @@
     </div>
   </section>
   <script>
+  // 控制loading
   setTimeout(function () {
     siteWelcome.classList.remove('active')
   }, 1000)
 
+  // 控制导航栏黏在顶部
   window.onscroll = function () {
     if (window.scrollY > 0) {
       topNavBar.classList.add('sticky')
@@ -230,6 +215,8 @@
       topNavBar.classList.remove('sticky')
     }
   }
+
+  // 监听鼠标在导航栏上移动
   let liTags = document.querySelectorAll('nav.menu > ul > li')
   for (let i = 0; i < liTags.length; i++) {
     liTags[i].onmouseenter = function (x) {
@@ -242,6 +229,8 @@
       x.currentTarget.classList.remove('active')
     }
   }
+
+  // 监听导航栏点击事件,控制锚点跳转
   let aTags = document.querySelectorAll('nav.menu > ul > li > a')
   for (let i = 0; i < aTags.length; i++) {
     aTags[i].onclick = function (x) {
