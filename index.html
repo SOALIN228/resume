@@ -204,21 +204,20 @@
   <div style="padding-bottom: 200px;"></div>
   <script src="https://cdn.bootcss.com/tween.js/17.3.0/Tween.min.js"></script>
   <script>
-   window.onload = function () {
-     setTimeout(function () {
-       siteWelcome.classList.remove('active')
-       offsetSite()
-     }, 300)
-   }
+  window.onload = function () {
+    setTimeout(function () {
+      siteWelcome.classList.remove('active')
+      offsetSite()
+      document.documentElement.style.overflow = ''
+    }, 3000)
+  }
+
+  document.documentElement.style.overflow = 'hidden'
 
   let specialTags = document.querySelectorAll('[data-x]')
   for (let i = 0; i < specialTags.length; i++) {
     specialTags[i].classList.add('offset')
   }
-  // setTimeout(function () {
-  // offsetSite()
-  // }, 10)
-
 
   // 控制导航栏黏在顶部
   window.onscroll = function () {
