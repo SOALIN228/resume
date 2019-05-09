@@ -8,7 +8,7 @@
     findClosestAndRemoveOffset()
   })
 
-// 移除距离顶部最近的属性，达到偏移动画的效果
+  // 移除距离顶部最近的属性，达到偏移动画的效果
   function findClosestAndRemoveOffset () {
     let specialTags = document.querySelectorAll('[data-x]')
     let minIndex = 0
@@ -29,7 +29,7 @@
     li.classList.add('highlight')
   }
 
-// 监听鼠标在导航栏上移动
+  // 监听鼠标在导航栏上移动
   let liTags = document.querySelectorAll('nav.menu > ul > li')
   for (let i = 0; i < liTags.length; i++) {
     liTags[i].onmouseenter = function (x) {

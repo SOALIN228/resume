@@ -171,14 +171,11 @@
   <section data-x id="siteWorks" class="portfolio">
     <h2>作品集</h2>
     <div class="swiper-container">
-      <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
-        <!-- Slides -->
         <img src="img/works/nav-page.jpg" class="swiper-slide">
         <img src="img/works/canvas.jpg" class="swiper-slide">
         <img src="img/works/apple-style-slides.jpg" class="swiper-slide">
       </div>
-      <!-- If we need pagination -->
       <div class="swiper-pagination"></div>
     </div>
     <div class="swiper-button-prev"></div>
@@ -197,12 +194,10 @@
   document.documentElement.style.overflow = 'hidden'
 
   window.onload = function () {
-    // setTimeout(function () {
       siteWelcome.classList.remove('active')
       // 移除offset完成偏移动画
       window.autoSlideUp.findClosestAndRemoveOffset()
       document.documentElement.style.overflow = ''
-    // }, 300)
   }
   </script>
 </body>
