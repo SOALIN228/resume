@@ -10,13 +10,11 @@
 </head>
 <body>
   <!--loading-->
-  <div id="siteWelcome" class="site-welocme active">
-    <div class="bouncing-loader">
+    <div id="siteWelcome" class="bouncing-loader active">
       <div></div>
       <div></div>
       <div></div>
     </div>
-  </div>
   <!--导航-->
   <div id="topNavBar" class="topNavBar">
     <div class="topNavBar-inner clearfix">
@@ -199,12 +197,12 @@
   document.documentElement.style.overflow = 'hidden'
 
   window.onload = function () {
-    setTimeout(function () {
+    // setTimeout(function () {
       siteWelcome.classList.remove('active')
       // 移除offset完成偏移动画
       window.autoSlideUp.findClosestAndRemoveOffset()
       document.documentElement.style.overflow = ''
-    }, 300)
+    // }, 300)
   }
   </script>
 </body>
