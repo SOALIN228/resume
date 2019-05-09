@@ -15,40 +15,31 @@
     display: flex;
 }
 
-.loading {
-    width: 200px;
-    height: 200px;
-    position: relative;
+@keyframes bouncing-loader {
+    to {
+        opacity: 0.1;
+        transform: translate3d(0, -1rem, 0);
+    }
 }
 
-.loading::before, .loading::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    background-color: #888;
+.bouncing-loader {
+    display: flex;
+    justify-content: center;
+}
+
+.bouncing-loader > div {
+    width: 1rem;
+    height: 1rem;
+    margin: 3rem 0.2rem;
+    background: #8385aa;
     border-radius: 50%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    animation: s 1.6s linear infinite;
+    animation: bouncing-loader 0.6s infinite alternate;
 }
 
-.loading::after {
-    animation-delay: .8s;
+.bouncing-loader > div:nth-child(2) {
+    animation-delay: 0.2s;
 }
 
-@keyframes s {
-    0% {
-        width: 0;
-        height: 0;
-        opacity: 1;
-    }
-    100% {
-        width: 70px;
-        height: 70px;
-        opacity: 0;
-    }
+.bouncing-loader > div:nth-child(3) {
+    animation-delay: 0.4s;
 }
