@@ -39,4 +39,8 @@
       x.currentTarget.classList.remove('active')
     }
   }
+
+  window.autoSlideUp = {
+    findClosestAndRemoveOffset: findClosestAndRemoveOffset
+  }
 }.call()

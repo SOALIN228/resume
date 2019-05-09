@@ -198,7 +198,7 @@
     setTimeout(function () {
       siteWelcome.classList.remove('active')
       // 移除offset完成偏移动画
-      findClosestAndRemoveOffset()
+      window.autoSlideUp.findClosestAndRemoveOffset()
       document.documentElement.style.overflow = ''
     }, 300)
   }
