@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>李明林的个人简历</title>
+  <link href="https://cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet">
+  <script src="//at.alicdn.com/t/font_1161326_iozzqhfu3qm.js"></script>
   <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/main.css">
-  <script src="//at.alicdn.com/t/font_1161326_iozzqhfu3qm.js"></script>
   <style type="text/css">
     .icon {
       width: 1em;
@@ -17,9 +18,11 @@
   </style>
 </head>
 <body>
+  <!--loading-->
   <div id="siteWelcome" class="site-welocme active">
     <div class="loading"></div>
   </div>
+  <!--导航-->
   <div id="topNavBar" class="topNavBar">
     <div class="topNavBar-inner clearfix">
       <a class="logo" href="#" alt="logo" style="float: left;">
@@ -52,10 +55,14 @@
       </nav>
     </div>
   </div>
-  <div class="banner">
+  <!--背景图-->
+  <div class="banner" id="banner">
     <div class="mask"></div>
   </div>
+  <!--个人介绍-->
   <main>
+
+
     <div data-x id="siteAbout" class="userCart">
       <div class="pictureAndText clearfix">
         <div class="picture">
@@ -113,6 +120,7 @@
       技能：前端开发，android开发
     </p>
   </main>
+  <!--技能介绍-->
   <section data-x id="siteSkills" class="skills">
     <h2>技能</h2>
     <ol class="clearfix">
@@ -166,43 +174,27 @@
       </li>
     </ol>
   </section>
+  <!--作品集-->
   <section data-x id="siteWorks" class="portfolio">
     <h2>作品集</h2>
-    <nav>
-      <ol class="clearfix">
-        <li id="portfolioAll">所有</li>
-        <li id="portfolioFramework">框架</li>
-        <li id="portfolioVallina">原生JS&amp;CSS</li>
-      </ol>
-      <div id="portfolioBar" class="bar state-1">
-        <div class="bar-inner"></div>
+    <div class="swiper-container">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <img src="img/works/nav-page.jpg" class="swiper-slide">
+        <img src="img/works/canvas.jpg" class="swiper-slide">
+        <img src="img/works/apple-style-slides.jpg" class="swiper-slide">
       </div>
-    </nav>
-    <script>
-    portfolioAll.onclick = function () {
-      portfolioBar.className = 'bar state-1'
-    }
-    portfolioFramework.onclick = function () {
-      portfolioBar.className = 'bar state-2'
-    }
-    portfolioVallina.onclick = function () {
-      portfolioBar.className = 'bar state-3'
-    }
-    </script>
-    <div class="works" style="height: 576px;">
-      <div class="big" style="top: 0; left: 0;">
-        <img src="./img/1.jpg" alt="作品1">
-      </div>
-      <div class="small" style="top: 0; left: 645px;">
-        <img src="./img/2.jpg" alt="作品2">
-      </div>
-      <div class="small" style="top: 298px; left: 645px;">
-        <img src="./img/3.jpg" alt="作品3">
-      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
     </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
   </section>
   <div style="padding-bottom: 200px;"></div>
   <script src="https://cdn.bootcss.com/tween.js/17.3.0/Tween.min.js"></script>
+  <script src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js"></script>
   <script>
   window.onload = function () {
     setTimeout(function () {
@@ -212,6 +204,7 @@
     }, 300)
   }
 
+  // loading时禁止滚动
   document.documentElement.style.overflow = 'hidden'
 
   let specialTags = document.querySelectorAll('[data-x]')
@@ -300,6 +293,24 @@
       .start()
     }
   }
+  </script>
+  <script>
+  var mySwiper = new Swiper ('.swiper-container', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  })
   </script>
 </body>
 </html>

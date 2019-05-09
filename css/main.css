@@ -343,7 +343,6 @@ section.skills .propressBar {
     height: 5px;
     margin: 4px 0 40px;
     position: relative;
-    overflow: hidden;
 }
 
 section.skills .propressBar > .progress {
@@ -357,7 +356,7 @@ section.skills .propressBar > .progress {
 }
 
 section.skills.offset .progress {
-    width: 0!important;
+    width: 0 !important;
 }
 
 section.skills .propressBar::after {
@@ -373,73 +372,37 @@ section.skills .propressBar::after {
     background-color: #e6686a;
 }
 
-section.portfolio > nav {
-    text-align: center;
-}
-
-section.portfolio > nav > ol {
-    margin: 0 auto;
-    display: inline-block;
-    vertical-align: top;
-}
-
-section.portfolio > nav > ol > li {
-    float: left;
-    margin-left: 40px;
-    cursor: pointer;
-}
-
-section.portfolio > nav > ol > li:first-child {
-    margin: 0;
-}
-
 section.portfolio {
     text-align: center;
     margin-bottom: 100px;
-}
-
-section.portfolio > nav {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 32px;
-}
-
-section.portfolio > nav .bar {
-    height: 5px;
-    background: white;
-    margin-top: 5px;
-    margin-bottom: 28px;
-    border-radius: 5px;
-}
-
-section.portfolio > nav .bar-inner {
-    height: 100%;
-    background: #e6686a;
-    border-radius: 5px;
-    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-}
-
-section.portfolio > nav .bar.state-1 .bar-inner {
-    margin-left: 0;
-    width: 50px;
-}
-
-section.portfolio > nav .bar.state-2 .bar-inner {
-    margin-left: 65px;
-    width: 50px;
-}
-
-section.portfolio > nav .bar.state-3 .bar-inner {
-    margin-left: 140px;
-    width: 96px;
-}
-
-section.portfolio .works {
+    max-width: 720px;
     position: relative;
 }
 
-section.portfolio .works > .big,
-section.portfolio .works > .small {
-    position: absolute;
+section.portfolio h2 {
+    margin-bottom: 32px;
 }
 
+section.portfolio .swiper-container {
+    width: 668px;
+    height: 501px;
+}
+
+section.portfolio .swiper-button-prev,
+section.portfolio .swiper-button-next {
+    background-color: #fff;
+    width: 64px;
+    height: 64px;
+    left: auto;
+    right: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    outline: none;
+}
+
+section.portfolio .swiper-button-next {
+    left: 100%;
+    right: auto;
+}
