@@ -10,11 +10,11 @@
 </head>
 <body>
   <!--loading-->
-    <div id="siteWelcome" class="bouncing-loader active">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+  <div id="siteWelcome" class="bouncing-loader active">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
   <!--导航-->
   <div id="topNavBar" class="topNavBar">
     <div class="topNavBar-inner clearfix">
@@ -180,24 +180,31 @@
     </div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-
   </section>
-  <div style="padding-bottom: 200px;"></div>
+  <!--留言板-->
+  <section>
+    <form id="postMessageForm" style="width: 700px;margin: 50px auto;">
+      <input type="text" name="content">
+      <input type="submit" value="提交">
+    </form>
+  </section>
   <script src="https://cdn.bootcss.com/tween.js/17.3.0/Tween.min.js"></script>
   <script src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script>
   <script src="js/sticky-topbar.js"></script>
   <script src="js/auto-slide-up.js"></script>
   <script src="js/smoothly-navigation.js"></script>
   <script src="js/init-swiper.js"></script>
+  <script src="js/message.js"></script>
   <script>
   // loading时禁止滚动
   document.documentElement.style.overflow = 'hidden'
 
   window.onload = function () {
-      siteWelcome.classList.remove('active')
-      // 移除offset完成偏移动画
-      window.autoSlideUp.findClosestAndRemoveOffset()
-      document.documentElement.style.overflow = ''
+    siteWelcome.classList.remove('active')
+    // 移除offset完成偏移动画
+    window.autoSlideUp.findClosestAndRemoveOffset()
+    document.documentElement.style.overflow = ''
   }
   </script>
 </body>
