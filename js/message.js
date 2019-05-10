@@ -6,12 +6,12 @@ AV.init({
   appKey: APP_KEY
 })
 
-var query = new AV.Query('Message')
+let query = new AV.Query('Message')
 query.find().then(function (messages) {
   let array = messages.map((item) => item.attributes)
   array.forEach((item) => {
     let li = document.createElement('li')
-    li.innerText = item.content
+    li.innerText = `${item.name}:${item.content}`
     let messageList = document.querySelector('#messageList')
     messageList.append(li)
   })
@@ -25,10 +25,12 @@ query.find().then(function (messages) {
 let myForm = document.querySelector('#postMessageForm')
 myForm.addEventListener('submit', function (e) {
   e.preventDefault()
+  let name = myForm.querySelector('input[name=name]').value
   let content = myForm.querySelector('input[name=content]').value
   let Message = AV.Object.extend('Message')
   let message = new Message()
   message.save({
+    name,
     content
   }).then(function (object) {
     window.location.reload()
