@@ -23,5 +23,6 @@
       this.view.classList.remove('sticky')
     }
   }
+
   controller.init(view)
 }.call()

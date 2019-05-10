@@ -1,5 +1,6 @@
 !function () {
   let view = document.querySelector('.swiper-container')
+
   let controller = {
     view: null,
     swiper: null,
@@ -21,5 +22,6 @@
       })
     }
   }
+
   controller.init(view)
 }.call()

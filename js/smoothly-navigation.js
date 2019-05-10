@@ -1,5 +1,6 @@
 !function () {
   let view = document.querySelector('nav.menu')
+
   let controller = {
     view: null,
     init: function (view) {
@@ -45,5 +46,6 @@
       }).start()
     }
   }
+
   controller.init(view)
 }.call()
