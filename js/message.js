@@ -3,7 +3,7 @@
 
   let model = {
     init: function () {
-      let APP_ID = 'XYJ1ba 9XpR8z36entWg7nI63-9Nh9j0Va'
+      let APP_ID = 'XYJ1ba9XpR8z36entWg7nI63-9Nh9j0Va'
       let APP_KEY = 'BwPCsREu0Xgfih6PJIGJwAcc'
       AV.init({
         appId: APP_ID,
@@ -61,13 +61,17 @@
       let myForm = this.form
       let name = myForm.querySelector('input[name=name]').value
       let content = myForm.querySelector('input[name=content]').value
-      this.model.save(name, content).then(function (object) {
-        let li = document.createElement('li')
-        li.innerText = `${object.attributes.name}:${object.attributes.content}`
-        let messageList = document.querySelector('#messageList')
-        messageList.append(li)
+      this.model.save(name, content).then((object) => {
+        this.updateMessage(object)
+        // 置空内容栏
         myForm.querySelector('input[name=content]').value = ''
       })
+    },
+    updateMessage: function (object) {
+      let li = document.createElement('li')
+      li.innerText = `${object.attributes.name}:${object.attributes.content}`
+      let messageList = document.querySelector('#messageList')
+      messageList.append(li)
     }
   }
 
