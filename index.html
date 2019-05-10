@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <title>李明林的个人简历</title>
   <link href="https://cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet">
-  <script src="//at.alicdn.com/t/font_1161326_iozzqhfu3qm.js"></script>
   <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/main.css">
+  <script src="//at.alicdn.com/t/font_1161326_iozzqhfu3qm.js"></script>
+  <script>
+  // loading时禁止滚动
+  document.documentElement.style.overflow = 'hidden'
+  </script>
 </head>
 <body>
   <!--loading-->
@@ -205,9 +209,6 @@
   <script src="js/init-swiper.js"></script>
   <script src="js/message.js"></script>
   <script>
-  // loading时禁止滚动
-  document.documentElement.style.overflow = 'hidden'
-
   window.onload = function () {
     siteWelcome.classList.remove('active')
     // 移除offset完成偏移动画
