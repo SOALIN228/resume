@@ -6,6 +6,22 @@ AV.init({
   appKey: APP_KEY
 })
 
+var query = new AV.Query('Message')
+query.find().then(function (messages) {
+  let array = messages.map((item) => item.attributes)
+  array.forEach((item) => {
+    let li = document.createElement('li')
+    li.innerText = item.content
+    let messageList = document.querySelector('#messageList')
+    messageList.append(li)
+  })
+}).then(function () {
+  // 更新成功
+}, function (error) {
+  // 异常处理
+  alert('提交失败，请改天再来留言')
+})
+
 let myForm = document.querySelector('#postMessageForm')
 myForm.addEventListener('submit', function (e) {
   e.preventDefault()
@@ -15,7 +31,7 @@ myForm.addEventListener('submit', function (e) {
   message.save({
     content
   }).then(function (object) {
-    console.log('存入成功')
+    window.location.reload()
     console.log(object)
   })
 })
