@@ -1,12 +1,9 @@
 !function () {
-  let view = document.querySelector('nav.menu')
+  let view = View('nav.menu')
 
-  let controller = {
-    view: null,
+  let controller = Controller({
     init: function (view) {
-      this.view = view
       this.initAnimation()
-      this.bindEvents()
     },
     initAnimation: function () {
       // 注册tween
@@ -45,7 +42,7 @@
         window.scrollTo(0, coords.y)
       }).start()
     }
-  }
+  })
 
   controller.init(view)
 }.call()

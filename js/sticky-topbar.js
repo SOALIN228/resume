@@ -1,11 +1,8 @@
 !function () {
-  let view = document.querySelector('#topNavBar')
+  let view = View('#topNavBar')
   // 控制导航栏黏在顶部
-  let controller = {
-    view: null,
+  let controller = Controller({
     init: function (view) {
-      this.view = view
-      this.bindEvents()
     },
     bindEvents: function () {
       window.addEventListener('scroll', () => {
@@ -22,7 +19,7 @@
     deactive: function () {
       this.view.classList.remove('sticky')
     }
-  }
+  })
 
   controller.init(view)
 }.call()
