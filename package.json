@@ -1,0 +1,29 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "个人简历网站",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bableBuild": "./node_modules/.bin/babel src/js --out-dir dist/js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SOALIN228/resume.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SOALIN228/resume/issues"
+  },
+  "homepage": "https://github.com/SOALIN228/resume#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "node-sass": "^4.12.0"
+  }
+}
