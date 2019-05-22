@@ -1,26 +1,17 @@
 const path = require('path')
-const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
   entry: {
-    style: './src/js/style.js',
     base: './src/js/base.js',
     main: './src/js/main.js'
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  devServer: {
-    contentBase: './dist',
-    open: true,
-    port: 8080,
-    hot: true,
-    hotOnly: true
+    path: path.resolve(__dirname, '../dist')
   },
   module: {
     rules: [{
@@ -31,8 +22,9 @@ module.exports = {
     }, {
       test: /\.css$/,
       use: [
-        'style-loader',
+        MiniCssExtractPlugin.loader,
         'css-loader',
+        'postcss-loader'
       ]
     }, {
       test: /\.js$/,
@@ -51,8 +43,17 @@ module.exports = {
     }]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: 'src/index.html' })
-  ]
+    new HtmlWebpackPlugin({ template: 'src/index.html' }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
+  ],
+  optimization: {
+    minimizer: [new OptimizeCSSAssetsPlugin({})],
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 }
