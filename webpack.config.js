@@ -7,6 +7,8 @@ module.exports = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   entry: {
+    style: './src/js/style.js',
+    base: './src/js/base.js',
     main: './src/js/main.js'
   },
   output: {

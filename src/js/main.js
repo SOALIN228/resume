@@ -1,9 +1,3 @@
-// import '../css/loading.css'
-import '../css/main.css'
-
-import './base/View'
-import './base/Model'
-import './base/Controller'
 import './sticky-topbar'
 import './auto-slide-up'
 import './smoothly-navigation'
