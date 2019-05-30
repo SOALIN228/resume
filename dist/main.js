@@ -120,9 +120,6 @@ $(function () {
 
   window.autoSlideUp.findClosestAndRemoveOffset();
   document.documentElement.style.overflow = '';
-  window.addEventListener('pageshow', function () {
-    window.scrollTo(window.scrollY, window.scrollY + 1);
-  });
 });
 
 /***/ }),
@@ -148,6 +145,13 @@ $(function () {
     init: function (view) {},
     bindEvents: function () {
       window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+          this.active();
+        } else {
+          this.deactive();
+        }
+      });
+      window.addEventListener('pageshow', () => {
         if (window.scrollY > 0) {
           this.active();
         } else {

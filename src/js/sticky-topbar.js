@@ -12,6 +12,13 @@
           this.deactive()
         }
       })
+      window.addEventListener('pageshow', () => {
+        if (window.scrollY > 0) {
+          this.active()
+        } else {
+          this.deactive()
+        }
+      })
     },
     active: function () {
       this.view.classList.add('sticky')
