@@ -10,6 +10,12 @@
       this.swiper = new Swiper(this.view, {
         direction: 'horizontal',
         loop: true,
+        effect : 'cube',
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          stopOnLastSlide: false
+        },
         pagination: {
           el: '.swiper-pagination',
         },

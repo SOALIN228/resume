@@ -12,4 +12,8 @@ $(function () {
   // 移除offset完成偏移动画
   window.autoSlideUp.findClosestAndRemoveOffset()
   document.documentElement.style.overflow = ''
+
+  window.addEventListener('pageshow', function () {
+    window.scrollTo(window.scrollY, window.scrollY + 1)
+  })
 })

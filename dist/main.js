@@ -120,6 +120,9 @@ $(function () {
 
   window.autoSlideUp.findClosestAndRemoveOffset();
   document.documentElement.style.overflow = '';
+  window.addEventListener('pageshow', function () {
+    window.scrollTo(window.scrollY, window.scrollY + 1);
+  });
 });
 
 /***/ }),
@@ -287,6 +290,12 @@ $(function () {
       this.swiper = new Swiper(this.view, {
         direction: 'horizontal',
         loop: true,
+        effect: 'cube',
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          stopOnLastSlide: false
+        },
         pagination: {
           el: '.swiper-pagination'
         },
