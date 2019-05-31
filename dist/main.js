@@ -131,6 +131,18 @@ $(function () {
     btn.style.setProperty('--x', x + 'px');
     btn.style.setProperty('--y', y + 'px');
   };
+
+  $('#swiper').on('click', 'img', function (e) {
+    let targeId = e.currentTarget.id;
+
+    if (targeId === 'work1') {
+      window.open('https://soalin228.github.io/mycanvas/index.html');
+    } else if (targeId === 'work2') {
+      window.open('https://soalin228.github.io/Pikachu/index.html');
+    } else if (targeId === 'work3') {
+      window.open('https://soalin228.github.io/nav-demo/index.html');
+    }
+  });
 });
 
 /***/ }),
@@ -262,8 +274,7 @@ $(function () {
       requestAnimationFrame(animate);
     },
     bindEvents: function () {
-      let aTags = this.view.querySelectorAll('nav > ul > li > a');
-      console.log(aTags); // 监听导航栏点击事件,控制锚点跳转
+      let aTags = this.view.querySelectorAll('nav > ul > li > a'); // 监听导航栏点击事件,控制锚点跳转
 
       for (let i = 0; i < aTags.length; i++) {
         aTags[i].onclick = x => {
@@ -311,7 +322,6 @@ $(function () {
     initSwiper: function () {
       this.swiper = new Swiper(this.view, {
         direction: 'horizontal',
-        loop: true,
         effect: 'cube',
         autoplay: {
           delay: 3000,
