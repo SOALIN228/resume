@@ -31,10 +31,11 @@
           <li><a href="#siteWorks">作品集</a></li>
           <li><a href="#siteMessage">留言</a></li>
           <li>
-            <a href="#">博客</a>
+            <a href="#">个人主页</a>
             <ul class="submenu">
-              <li>blog</li>
-              <li>csdn</li>
+              <li><a href="https://github.com/SOALIN228" target="_blank">girhub</a></li>
+              <li><a href="https://soalin228.github.io/" target="_blank">blog</a></li>
+              <li><a href="https://blog.csdn.net/SOALIN228" target="_blank">csdn</a></li>
             </ul>
           </li>
           <li><a href="#"></a></li>
@@ -177,16 +178,23 @@
   <section data-x id="siteMessage" class="message">
     <h2>留言</h2>
     <ol id="messageList">
-      <li>姓名/内容</li>
     </ol>
-    <form id="postMessageForm" style="width: 700px;margin: 50px auto;">
-      <label>姓名
-        <input type="text" name="name">
-      </label>
-      <label>内容
-        <input type="text" name="content">
-      </label>
-      <input type="submit" value="提交">
+    <form id="postMessageForm">
+      <div class="page-wrap clearfix">
+        <div class="styled-input">
+          <input type="text" name="name" autocomplete="off" required/>
+          <label>姓名</label>
+          <span></span>
+        </div>
+        <div class="styled-input">
+          <input type="text" name="content" autocomplete="off" required/>
+          <label>内容</label>
+          <span></span>
+        </div>
+        <div class="btn">
+          <button class="mouse-cursor-gradient-tracking"><span>提交</span></button>
+        </div>
+      </div>
     </form>
   </section>
   <div style="height: 50px;"></div>

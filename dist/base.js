@@ -126,6 +126,10 @@ window.Model = function (options) {
     // 获取数据
     fetch: function () {
       let query = new AV.Query(resourceName);
+      let now = new Date();
+      query.lessThanOrEqualTo('createdAt', now);
+      query.limit(10);
+      query.descending('createdAt');
       return query.find(); // Promise 对象
     },
     // 添加到leancloud的指定库中

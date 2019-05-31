@@ -14,7 +14,8 @@
       requestAnimationFrame(animate)
     },
     bindEvents: function () {
-      let aTags = this.view.querySelectorAll('ul > li > a')
+      let aTags = this.view.querySelectorAll('nav > ul > li > a')
+      console.log(aTags)
       // 监听导航栏点击事件,控制锚点跳转
       for (let i = 0; i < aTags.length; i++) {
         aTags[i].onclick = (x) => {

@@ -27,6 +27,14 @@ module.exports = {
         'postcss-loader'
       ]
     }, {
+      test: /\.scss$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'postcss-loader', // 支持插件
+        'sass-loader'
+      ]
+    }, {
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'

@@ -41,7 +41,8 @@
       let li = document.createElement('li')
       li.innerText = `${object.attributes.name}:${object.attributes.content}`
       let messageList = document.querySelector('#messageList')
-      messageList.append(li)
+      console.log(messageList)
+      messageList.prepend(li)
     }
   })
 

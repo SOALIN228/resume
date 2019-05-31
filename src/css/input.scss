@@ -1,0 +1,95 @@
+.page-wrap{
+  box-sizing: border-box;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding-left: 121px;
+
+}
+
+%label-movement {
+  font-size: 0.75em;
+  color: #e6686a;
+  top: -2.25rem;
+  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+}
+
+.styled-input {
+  float: left;
+  width: 33.3333%;
+  margin: 2rem 0 1rem;
+  position: relative;
+  label {
+    color: #999;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+    pointer-events: none;
+  }
+}
+
+input {
+  padding: 1rem 1rem;
+  border: 0;
+  width: 100%;
+  font-size: 1rem;
+  ~ span {
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #e6686a;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  }
+  &:focus {
+    outline: 0;
+    ~ label {
+      @extend %label-movement;
+    }
+    ~ span {
+      width: 100%;
+      transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+    }
+  }
+  &:valid ~ label {
+    @extend %label-movement;
+  }
+}
+
+.mouse-cursor-gradient-tracking {
+  position: relative;
+  background: #7983ff;
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+}
+.mouse-cursor-gradient-tracking span {
+  position: relative;
+}
+.mouse-cursor-gradient-tracking::before {
+  --size: 0;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, pink, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+.mouse-cursor-gradient-tracking:hover::before {
+  --size: 200px;
+}
+
+.btn {
+  float: left;
+  margin: 2rem 0 1rem;
+}
